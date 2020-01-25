@@ -1,14 +1,21 @@
-import '@babel/polyfill';
-
 import React, { Component } from 'react';
-import ReactDome from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import ReactDom from 'react-dom';
+import Home from './home';
+import List from './list';
 
 class App extends Component {
+
   render() {
     return (
-      <div>Hello World!</div>
+      <BrowserRouter>
+        <div>
+          <Route path='/' exact component={Home} />
+          <Route path='/list' component={List} />
+        </div>
+      </BrowserRouter>
     )
   }
 }
 
-ReactDome.render(<App/>, document.getElementById('root'));
+ReactDom.render(<App/>, document.getElementById('root'));
